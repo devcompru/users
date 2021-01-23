@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Devcompru;
 
 
-class User
+use Devcompru\Interfaces\UserInterface;
+
+class User implements UserInterface
 {
 
 }
