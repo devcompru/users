@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "php": "8.*"
+    "php": "8.*",
+    "symfony/serializer": ">=5.2"
   },
   "require-dev": {
 
