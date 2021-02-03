@@ -58,7 +58,8 @@ class Database implements DatabaseInterface
 
     public function disconnect(): void
     {
-        // TODO: Implement disconnect() method.
+        $this->pdo = null;
+        $this->statement = null;
     }
 
     public function query(string $sql, array $bindParams = []): mixed
@@ -79,7 +80,7 @@ class Database implements DatabaseInterface
     public function execute(string $SQL)
     {
         $this->statement = $this->pdo->query($SQL);
-        echo "<pre>";
-        print_r($this->statement);
+
+        return true;
     }
 }

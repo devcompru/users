@@ -14,6 +14,6 @@ interface DatabaseInterface
     public function disconnect():void;
 
     public function query(string $sql, array $bindParams): mixed;
-
+    public function execute(string $SQL);
 
 }

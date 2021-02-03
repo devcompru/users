@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Devcompru\Users;
 
 
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 class UserModel
 {
     public int $id=0;
@@ -24,39 +25,20 @@ class UserModel
     public int    $created_at;
     public int    $updated_at;
 
-    private string $table_name = 'users';
 
-
-    public function setTableName(string $table_name): void
+    public function createUser(array $user_fields)
     {
-        $this->table_name = $table_name;
-    }
 
-    public  function createTableSQL()
-    {
-        $SQL = <<<SQL
-CREATE TABLE {$this->table_name}
-(
-    id INT(255) AUTO_INCREMENT PRIMARY KEY,
-    GUID VARCHAR(128) NOT NULL,
-    access_key VARCHAR (128),
-    username VARCHAR (128) NOT NULL,
-    pass_hash VARCHAR (128) NOT NULL,
-    reg_user_ip VARCHAR (20) NOT NULL,
-    oauth_token VARCHAR (255) ,
-    oauth_id VARCHAR (128),
-    oauth_type VARCHAR (20),
-    ban INT(1) DEFAULT 0,
-    password_reset VARCHAR (128),
-    created_at INT(32) NOT NULL,
-    updated_at INT(32)
-    
-)
-SQL;
+        $encoders = [new JsonEncoder()];
 
-        return $SQL;
+        echo "<pre>";
+        print_r($this);
     }
 
 
+    public function validate()
+    {
+
+    }
 
 }

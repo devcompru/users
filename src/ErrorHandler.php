@@ -16,12 +16,11 @@ class ErrorHandler
     public function registration()
     {
 
-        set_exception_handler([$this, 'exception']);
+        //set_exception_handler([$this, 'exception']);
     }
 
-    public function exception(\Exception $e)
+    public function exception($e)
     {
-    
         echo "Server error ". $e->getCode();
 
         return true;
